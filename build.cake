@@ -63,15 +63,19 @@ Task("Publish")
             {
                 return;
             }
-
-        var settings = new DotNetCorePackSettings
-        {
-            Configuration = configuration,
-            OutputDirectory = outputDir,
-            NoBuild = true
-        };
-        DotNetCorePack(projectFilePath, settings);
         */
+
+        var settings = new DotNetCorePublishSettings
+        {
+            Configuration = configuration
+        };
+
+        if (versionInfo != null)
+        {
+            settings.VersionSuffix = versionInfo.NuGetVersion;
+        }
+
+        DotNetCorePublish(projectFilePath, settings);
     });
 
 Task("Restore")
