@@ -1,0 +1,42 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "osx": {
+        "command": "${workspaceRoot}/build.sh",
+        "args": [
+            "-t"
+        ]
+    },
+    "windows": {
+        "command": "PowerShell.exe",
+        "args": [
+            "-NoProfile",
+            "${workspaceRoot}/build.ps1",
+            "-Target"
+        ]
+    },
+    "isShellCommand": true,
+    "tasks": [
+        {
+            "taskName": "build",
+            "suppressTaskName": true,
+            "args": [
+                "Build"
+            ],
+            "isBuildCommand": true,
+            "showOutput": "always",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "test",
+            "suppressTaskName": true,
+            "args": [
+                "Test"
+            ],
+            "isTestCommand": true,
+            "showOutput": "always",
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
