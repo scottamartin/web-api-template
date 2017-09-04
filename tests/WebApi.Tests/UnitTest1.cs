@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
 
-namespace Rompr.Netsuite.Tests
+namespace WebApi.Tests
 {
     [TestFixture]
     public class UnitTest1
